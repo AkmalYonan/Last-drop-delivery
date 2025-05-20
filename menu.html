@@ -60,22 +60,11 @@
                         />
                       </div>
                     </div>
-                    <!-- <div class="col-md-9 offset-md-2">
-                      <div class="px-5">
-                        <img
-                          id="garageBtn"
-                          src="assets/menu/garage.png"
-                          class="img-fluid rounded shadow btn-img"
-                          role="button"
-                          draggable="false"
-                        />
-                      </div>
-                    </div> -->
                     <div class="col-md-9 offset-md-2">
                       <div class="px-5">
                         <img
-                          id="garageBtn"
-                          src="assets/menu/setting.png"
+                          id="creditBtn"
+                          src="assets/menu/credit.png"
                           class="img-fluid rounded shadow btn-img"
                           role="button"
                           draggable="false"
@@ -111,6 +100,13 @@
 
       setTimeout(() => {
         window.location.href = "garage.html";
+      }, 150);
+    });
+    document.getElementById("creditBtn").addEventListener("click", () => {
+      playClickSfx();
+
+      setTimeout(() => {
+        window.location.href = "credit.html";
       }, 150);
     });
   </script>
