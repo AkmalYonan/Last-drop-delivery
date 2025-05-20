@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pixel Racing Game</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background-color: #222;
+        color: white;
+        font-family: Arial, sans-serif;
+      }
+      .game-container {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 100vh;
+      }
+      canvas {
+        background: black;
+        border: 2px solid white;
+      }
+      .ui {
+        margin-top: 10px;
+      }
+      button {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        border: none;
+        background: #ffcc00;
+        color: black;
+        font-weight: bold;
+        border-radius: 5px;
+      }
+      button:hover {
+        background: #ff9900;
+      }
+      #gameOver {
+        display: none;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: rgba(0, 0, 0, 0.8);
+        padding: 20px;
+        color: white;
+        font-size: 24px;
+        font-weight: bold;
+        text-align: center;
+        border-radius: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="game-container">
+      <!-- Game Section -->
+      <div class="canvas-container">
+        <canvas id="gameCanvas" width="400" height="600"></canvas>
+      </div>
+
+      <div id="gameOver">
+        GAME OVER <br />
+        Click to Restart
+      </div>
+    </div>
+
+    <!-- Hidden background image for rendering in JavaScript -->
+
+    <div
+      id="finishOptions"
+      style="
+        display: none;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: rgba(0, 0, 0, 0.85);
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+        max-width: 300px;
+        width: 100%;
+      "
+    >
+      <h3 style="color: white; margin-bottom: 20px">FINISH LINE REACHED!</h3>
+
+      <div class="row gx-3">
+        <div class="col-6">
+          <img
+            onclick="goHome()"
+            class="img-fluid rounded"
+            src="../assets/menu/home.png"
+            alt="Home"
+            style="cursor: pointer"
+          />
+        </div>
+        <div class="col-6">
+          <img
+            onclick="nextLevel()"
+            class="img-fluid rounded"
+            src="../assets/menu/nextlevel.png"
+            alt="Next Level"
+            style="cursor: pointer"
+          />
+        </div>
+      </div>
+    </div>
+
+    <img
+      id="backButtonImg"
+      src="../assets/menu/back.png"
+      style="display: none"
+    />
+
+    <img
+      id="backgroundImg"
+      src="../assets/bglevel1.png"
+      style="display: none"
+    />
+    <img id="npc1" src="../assets/mobil/P1.png" style="display: none" />
+    <img id="npc2" src="../assets/mobil/AMBULANCE.png" style="display: none" />
+    <img id="npc3" src="../assets/mobil/NPC1.png" style="display: none" />
+    <img id="npc4" src="../assets/mobil/P2.png" style="display: none" />
+
+    <img id="player" src="../assets/mobil/player/ingame/TRUCK1.png" hidden />
+    <img id="truck2" src="../assets/mobil/player/ingame/TRUCK2.png" hidden />
+    <img id="truck3" src="../assets/mobil/player/ingame/TRUCK3.png" hidden />
+    <img id="truck4" src="../assets/mobil/player/ingame/TRUCK4.png" hidden />
+    <img id="truck5" src="../assets/mobil/player/ingame/TRUCK5.png" hidden />
+
+    <img id="fuelImg" src="../assets/fuel.png" style="display: none" />
+    <audio
+      id="fuel-sfx"
+      src="../assets/audio/takefuel_1.mp3"
+      preload="auto"
+    ></audio>
+    <audio id="finish-sfx" src="../assets/audio/win.mp3" preload="auto"></audio>
+    <audio
+      id="crash-sfx"
+      src="../assets/audio/gameover.mp3"
+      preload="auto"
+    ></audio>
+    <audio id="bgSound" loop>
+      <!-- <source src="../assets/audio/trucksound.mp3" type="audio/mpeg" /> -->
+      <source src="../assets/audio/traffic.mp3" type="audio/mpeg" />
+    </audio>
+
+    <script src="script1.js"></script>
+  </body>
+  <script>
+    function goHome() {
+      window.location.href = "../select.html";
+    }
+
+    function nextLevel() {
+      // Bisa redirect ke level berikutnya
+      window.location.href = "../level2/level2.html"; // Ganti dengan level berikutnya
+    }
+  </script>
+
+  <script>
+    // Tunggu hingga seluruh DOM selesai dimuat
+    document.addEventListener("DOMContentLoaded", () => {
+      // Mulai game otomatis saat halaman dimuat
+      game.toggleGame(); // Game mulai
+    });
+  </script>
+</html>

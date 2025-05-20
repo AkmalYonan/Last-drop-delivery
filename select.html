@@ -1,0 +1,186 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="stylemenu.css" />
+  </head>
+  <body>
+    <div class="container-center">
+      <div class="container text-center body text-white">
+        <div class="text-white">
+          <div class="row g-2 tinggi">
+            <div
+              class="col-md-6 offset-md-3 p-5 rounded shadow"
+              style="
+                background: linear-gradient(
+                    rgba(0, 0, 0, 0.5),
+                    rgba(0, 0, 0, 0.5)
+                  ),
+                  url('assets/bgmenu.jpg');
+              "
+            >
+              <div class="row mb-3">
+                <div class="col-6 col-md-3">
+                  <img
+                    id="btn"
+                    class="rounded img-fluid"
+                    src="assets/menu/back.png"
+                  />
+                </div>
+                <div class="col-6 col-md-3">
+                  <img
+                    onclick="localStorage.clear(); location.reload();"
+                    class="rounded img-fluid"
+                    src="assets/menu/reset.png"
+                  />
+                </div>
+                <div class="col-6 col-md-3">
+                  <img
+                    onclick="location.href='freeroam/freeroam.html'"
+                    class="rounded img-fluid"
+                    src="assets/menu/freeroam.jpeg"
+                  />
+                </div>
+                <div class="col-6 col-md-3">
+                  <div
+                    id="highScoreDisplay"
+                    class="text-white fs-6 text-center fw-semibold"
+                  >
+                    High Score: 0
+                  </div>
+                </div>
+              </div>
+              <div class="container py-4">
+                <p class="text-center text-white mb-4 fw-semibold fs-3">
+                  Select Level
+                </p>
+                <div class="row g-4">
+                  <!-- Level Card -->
+                  <div
+                    class="col-6 col-sm-4 col-md-3 col-lg-3"
+                    style="--level: 1"
+                  >
+                    <div
+                      class="card bg-dark text-white border-light h-100 shadow-sm level-card"
+                      id="level1Card"
+                    >
+                      <a href="level1/level1.html">
+                        <img
+                          src="https://i.imgur.com/gX11Vt5.jpg"
+                          class="card-img-top img-fluid"
+                          alt="Level Image"
+                          id="level1Image"
+                        />
+                      </a>
+                      <div class="card-body text-center py-2">
+                        <h6 class="card-title mb-0" id="level1Title">
+                          Level <span class="level-number">1</span>
+                        </h6>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Salin blok di atas dan ubah URL & angka level -->
+                  <!-- Contoh tambahan -->
+                  <div
+                    class="col-6 col-sm-4 col-md-3 col-lg-3"
+                    style="--level: 2"
+                  >
+                    <div
+                      class="card bg-dark text-white border-light h-100 shadow-sm level-card"
+                    >
+                      <a href="level2/level2.html">
+                        <img
+                          src="https://i.imgur.com/pZcUS2Y.jpg"
+                          class="card-img-top img-fluid"
+                          alt="Level Image"
+                        />
+                      </a>
+                      <div class="card-body text-center py-2">
+                        <h6 class="card-title mb-0">
+                          Level <span class="level-number">2</span>
+                        </h6>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div
+                    class="col-6 col-sm-4 col-md-3 col-lg-3"
+                    style="--level: 3"
+                  >
+                    <div
+                      class="card bg-dark text-white border-light h-100 shadow-sm level-card"
+                    >
+                      <a href="https://i.imgur.com/06Ajq7f.jpg">
+                        <img
+                          src="https://i.imgur.com/06Ajq7f.jpg"
+                          class="card-img-top img-fluid"
+                          alt="Level Image"
+                        />
+                      </a>
+                      <div class="card-body text-center py-2">
+                        <h6 class="card-title mb-0">
+                          Level <span class="level-number">3</span>
+                        </h6>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Tambah lagi sesuai kebutuhan -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <audio id="click-sfx" src="assets/audio/click.mp3" preload="auto"></audio>
+  </body>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Script Menu Logic -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      if (localStorage.getItem("level1Completed") === "true") {
+        // Ubah gambar
+        const img = document.getElementById("level1Image");
+        img.src = "assets/done.png"; // ganti dengan gambar 'Level Complete'
+
+        // Ubah teks
+        const title = document.getElementById("level1Title");
+        title.innerText = "Level 1 Complete";
+
+        // Opsional: ubah gaya atau tambahkan ikon ✔️
+        // title.innerHTML = "✅ Level 1 Complete";
+      }
+    });
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const highScore = localStorage.getItem("highScore") || 0;
+      document.getElementById(
+        "highScoreDisplay"
+      ).innerText = `High Score: ${highScore}`;
+    });
+  </script>
+
+  <script>
+    document.getElementById("btn").addEventListener("click", () => {
+      playClickSfx();
+
+      setTimeout(() => {
+        // history.back(); // atau location.href = 'menu.html';
+        window.location.href = "menu.html";
+      }, 150);
+    });
+  </script>
+
+  <script src="global.js"></script>
+</html>

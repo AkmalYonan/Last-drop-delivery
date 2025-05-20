@@ -1,0 +1,71 @@
+/* General styling for both menu.html and garage.html */
+body {
+  background-color: #222;
+  /* height: 100vh; */
+}
+
+.container-center {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-img {
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.btn-img:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  background: #ffcc00;
+  color: black;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+button:hover {
+  background: #ff9900;
+}
+
+.logo-img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.image-grid {
+  max-height: 100vh;
+  overflow-y: auto;
+}
+
+.img-fluid:hover {
+  border: 2px solid #ffcc00;
+  border-radius: 5px;
+}
+
+.tinggi {
+  height: 90vh;
+  overflow-y: auto;
+}
+
+.level-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+.level-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0.5rem 1rem rgba(255, 255, 255, 0.1);
+}
+.card-title {
+  font-weight: bold;
+  font-size: 1rem;
+}
