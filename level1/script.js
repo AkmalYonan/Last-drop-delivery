@@ -340,6 +340,21 @@ class Player {
       case "5":
         this.image = document.getElementById("truck5");
         break;
+      case "6":
+        this.image = document.getElementById("truck6");
+        break;
+      case "7":
+        this.image = document.getElementById("truck7");
+        break;
+      case "8":
+        this.image = document.getElementById("truck8");
+        break;
+      case "9":
+        this.image = document.getElementById("truck9");
+        break;
+      case "10":
+        this.image = document.getElementById("truck10");
+        break;
       default:
         this.image = document.getElementById("player"); // default image
     }

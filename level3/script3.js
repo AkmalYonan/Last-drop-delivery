@@ -69,7 +69,7 @@ class Game {
   }
 
   spawnAICars(count) {
-    const availablePositions = [110, 220, 140, 255]; // Lajur posisi mobil AI
+    const availablePositions = [110, 200, 150, 255]; // Lajur posisi mobil AI
     this.aiCars = [];
 
     for (let i = 0; i < count; i++) {

@@ -6,7 +6,7 @@ class Game {
     this.gameRunning = false;
     this.gameOver = false;
     this.score = 0;
-    this.player = new Player(180, 500);
+    this.player = new Player(150, 500);
     this.backButton = {
       img: document.getElementById("backButtonImg"),
       x: 10,
@@ -69,7 +69,7 @@ class Game {
   }
 
   spawnAICars(count) {
-    const availablePositions = [110, 230, 145, 260]; // Lajur posisi mobil AI
+    const availablePositions = [110, 230, 170, 260]; // Lajur posisi mobil AI
     this.aiCars = [];
 
     for (let i = 0; i < count; i++) {
