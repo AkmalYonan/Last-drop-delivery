@@ -25,7 +25,7 @@ class Game {
     this.bgSpeed = 10;
     this.finishLineY = -100; // posisi awal garis finish (di luar layar)
     this.showFinish = false; // apakah garis finish aktif
-    this.finishScore = 200; // skor yang dibutuhkan untuk memunculkan garis finish
+    this.finishScore = 1500; // skor yang dibutuhkan untuk memunculkan garis finish
     // BUAT GARIS MAP
     this.roadLeftBound = 85;
     this.roadRightBound = 330;
